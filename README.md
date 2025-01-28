@@ -1,15 +1,15 @@
-# Test technique React / TypeScript / Tailwind
+# Test technique React 18 / TypeScript / Tailwind
 
 ## Description
 
-Test technique réa
+Test technique réalisé pour Likewatt.
 
 ## Prérequis
 
 Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
-- [npm](https://www.npmjs.com/) (version 6 ou supérieure)
+- [Node.js](https://nodejs.org/) (version 20.18.1 ou supérieure)
+- [npm](https://www.npmjs.com/) (version 10.8.2 ou supérieure)
 
 ## Installation
 
@@ -31,5 +31,5 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 Pour démarrer l'application en mode développement, exécutez la commande suivante :
 
 ```bash
-npm start
+npm run dev
 ```
