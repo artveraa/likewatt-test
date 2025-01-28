@@ -87,6 +87,8 @@ const Weather = () => {
         ))}
       </div>
 
+      {/* Gestion de l'affichage des jours */}
+
       {dates.length > 1 && (
         <div className="flex justify-center mt-5">
           <button

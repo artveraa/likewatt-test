@@ -1,3 +1,5 @@
+
+// Vérifie que la valeur est bien comprise entre 0 et 180
 type Tilt = number & { readonly __brand: "Tilt" };
 
 export const createTilt = (value: number): Tilt => {

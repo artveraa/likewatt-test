@@ -8,11 +8,13 @@ import { Panel } from "../utils/definitions";
 const Dashboard = () => {
   const [panels, setPanels] = useState<Panel[]>([]);
 
+  // Récupérer les panneaux solaires
   const fetchPanels = async () => {
     const panels = await getPanels();
     setPanels(panels.data);
   };
 
+  // Ajouter un panneau solaire
   const addPanel = (panel: Panel) => {
     setPanels([...panels, panel]);
   };

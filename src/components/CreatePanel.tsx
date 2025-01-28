@@ -6,26 +6,27 @@ interface CreatePanelProps {
 }
 
 const CreatePanel = ({ addPanel }: CreatePanelProps) => {
-  const [state, setState] = useState<Omit<Panel, "id">>({
+  const [panel, setPanel] = useState<Omit<Panel, "id">>({
     model: "",
     capacity: 0,
     tilt: createTilt(0),
     isActive: false,
   });
 
+  // Gestion des changements dans les inputs
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setState((prevState) => ({
-      ...prevState,
+    setPanel((prevPanel) => ({
+      ...prevPanel,
       [name]: name === "tilt" ? createTilt(Number(value)) : value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newPanel: Panel = { ...state, id: Date.now() };
+    const newPanel: Panel = { ...panel, id: Date.now() };
     addPanel(newPanel);
-    setState({
+    setPanel({
       model: "",
       capacity: 0,
       tilt: createTilt(0),
@@ -48,7 +49,7 @@ const CreatePanel = ({ addPanel }: CreatePanelProps) => {
           <input
             type="text"
             name="model"
-            value={state.model}
+            value={panel.model}
             onChange={handleChange}
             className="bg-white border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-300"
             placeholder="Ex: SOLAR-X"
@@ -63,7 +64,7 @@ const CreatePanel = ({ addPanel }: CreatePanelProps) => {
           <input
             type="number"
             name="capacity"
-            value={state.capacity}
+            value={panel.capacity}
             onChange={handleChange}
             className="bg-white border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-300"
             min={1}
@@ -78,7 +79,7 @@ const CreatePanel = ({ addPanel }: CreatePanelProps) => {
           <input
             type="number"
             name="tilt"
-            value={state.tilt}
+            value={panel.tilt}
             onChange={handleChange}
             className={`bg-white border rounded-lg p-2 focus:ring-2 `}
             min={1}
@@ -92,7 +93,7 @@ const CreatePanel = ({ addPanel }: CreatePanelProps) => {
             type="checkbox"
             name="isActive"
             id="isActive"
-            checked={state.isActive}
+            checked={panel.isActive}
             onChange={handleChange}
             className="w-5 h-5 text-blue-500 border-gray-300 rounded-md focus:ring-2 focus:ring-blue-300"
           />

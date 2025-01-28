@@ -13,6 +13,7 @@ const SideBar = () => {
 
   return (
     <>
+      {/* Button */}
       <button
         className="lg:hidden fixed top-4 left-4 z-30 bg-main text-white p-2 rounded-full shadow-md hover:bg-opacity-80 transition-all"
         onClick={() => setIsOpen(true)}
@@ -20,6 +21,7 @@ const SideBar = () => {
         <FaBars size={20} />
       </button>
 
+      {/* Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-20"
@@ -27,6 +29,7 @@ const SideBar = () => {
         ></div>
       )}
 
+      {/* Sidebar */}
       <div
         className={`bg-dark text-white h-screen w-80 fixed top-0 left-0 z-40 flex flex-col items-center p-5 shadow-md transform transition-transform duration-300 
         ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
@@ -59,7 +62,6 @@ const SideBar = () => {
           </ul>
         </nav>
 
-        {/* ✅ Copyright */}
         <div className="mt-auto text-gray-400 text-sm">
           <p>© {new Date().getFullYear()} Likewatt</p>
         </div>
